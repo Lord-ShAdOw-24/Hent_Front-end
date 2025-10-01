@@ -224,3 +224,57 @@ body{
   .topbar{padding:10px}
   .search-wrap input{padding:8px}
 }
+.footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 8px 0;
+      background: #000;
+      z-index: 100; /* pour qu’il soit au-dessus */
+    }
+    body.light .footer-links {
+      background: #f0f0f0;
+    }
+    .footer-links a {
+      color: #00aaff; /* bleu vif */
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    .footer-links a:hover {
+      color: #1db954;
+    }
+/* Mise en page générale */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenu principal qui prend toute la place dispo */
+main {
+  flex: 1;
+}
+
+/* Footer toujours en bas */
+.main-footer {
+  background-color: #111; /* ou une autre couleur */
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.footer-links {
+  background-color: #000; /* ou autre */
+  text-align: center;
+  padding: 10px 0;
+}
+
+.footer-links a {
+  color: #00f; /* bleu vif comme dans ta capture */
+  margin: 0 10px;
+  text-decoration: none;
+}
