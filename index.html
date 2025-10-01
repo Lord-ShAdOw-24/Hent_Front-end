@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hentai Search — Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <button id="hamburger" class="hamburger" aria-label="Menu">☰</button>
+    <div class="search-wrap">
+      <input id="searchInput" type="search" placeholder="Rechercher un hentai..." />
+      <button id="searchBtn" class="search-btn" aria-label="Rechercher">🔍</button>
+    </div>
+    <div class="spacer"></div>
+    <div class="brand">Hentai Search</div>
+  </header>
+
+  <aside id="sidePanel" class="side-panel hidden">
+    <div class="panel-header">
+      <h3>Favoris</h3>
+      <button id="closePanel" aria-label="Fermer">✕</button>
+    </div>
+    <div id="favoritesList" class="favorites-list">
+      <!-- favoris injectés ici -->
+    </div>
+
+    <hr />
+    <div class="rate-site">
+      <label>Noter le site</label>
+      <div id="siteRating" class="stars">
+        <!-- étoiles dynamiques -->
+      </div>
+    </div>
+  </aside>
+
+  <main class="container">
+    <section id="results" class="results">
+      <!-- liste vidéos -->
+    </section>
+  </main>
+
+  <!-- Modal player / page vidéo -->
+  <div id="videoModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content">
+      <div class="video-column">
+        <div class="player-topbar">
+          <h2 id="playerTitle"></h2>
+          <div class="player-actions">
+            <button id="modalFavBtn" class="icon-btn" title="Ajouter aux favoris">☆</button>
+            <button id="modalDownloadBtn" class="icon-btn" title="Télécharger">⬇︎</button>
+            <button id="modalFullBtn" class="icon-btn" title="Plein écran">⤢</button>
+          </div>
+        </div>
+
+        <div class="player-area">
+          <div class="video-wrapper">
+            <video id="playerVideo" controls preload="metadata" playsinline>
+              <source src="" type="video/mp4" />
+              Votre navigateur ne prend pas en charge la balise vidéo.
+            </video>
+            <div id="brightnessOverlay" class="brightness-overlay"></div>
+          </div>
+
+          <div class="player-controls-extra">
+            <label>Vitesse
+              <select id="speedSelector">
+                <option value="0.5">0.5x</option>
+                <option value="0.75">0.75x</option>
+                <option value="1" selected>1x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5">1.5x</option>
+                <option value="2">2x</option>
+              </select>
+            </label>
+
+            <label>Volume
+              <input id="volumeRange" type="range" min="0" max="1" step="0.01" value="1">
+            </label>
+
+            <label>Luminosité
+              <input id="brightnessRange" type="range" min="0.3" max="1.5" step="0.05" value="1">
+            </label>
+          </div>
+
+          <div class="video-actions-compact">
+            <button id="likeBtn" class="small-btn">👍 <span id="likeCount">0</span></button>
+            <button id="dislikeBtn" class="small-btn">👎 <span id="dislikeCount">0</span></button>
+            <button id="followBtn" class="small-btn">Follow♥️</button>
+            <button id="commentToggleBtn" class="small-btn">Commentaires</button>
+          </div>
+
+          <div id="commentsSection" class="comments-section hidden">
+            <h4>Commentaires</h4>
+            <div id="commentList"></div>
+            <div class="comment-form">
+              <input id="commentInput" placeholder="Ajouter un commentaire..." />
+              <button id="commentSend">Envoyer</button>
+            </div>
+          </div>
+
+          <div class="synopsis" id="videoSynopsis">
+            <!-- synopsis -->
+          </div>
+
+        </div>
+      </div>
+
+      <aside class="related-column">
+        <h3>Vidéos relatives</h3>
+        <div id="relatedList" class="related-list"></div>
+      </aside>
+
+    </div>
+
+    <button id="modalClose" class="modal-close" aria-label="Fermer">✕</button>
+  </div>
+
+  <template id="cardTpl">
+    <article class="video-card">
+      <img class="thumb" src="" alt="" />
+      <div class="meta">
+        <h4 class="title"></h4>
+        <div class="subtitle"></div>
+      </div>
+      <div class="card-actions">
+        <button class="download-btn" title="Télécharger">⬇︎</button>
+        <button class="fav-btn" title="Ajouter aux favoris">☆</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
